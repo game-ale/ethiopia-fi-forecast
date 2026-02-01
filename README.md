@@ -96,9 +96,11 @@ jupyter notebook notebooks/EDA.ipynb
 
 > [!IMPORTANT]
 > **The Ownership Paradox**: Account ownership grew only **3pp (46% → 49%)** between 2021-2024 despite a **10x** increase in mobile money registrations. This suggests significant overlap and a need for deeper usage-based metrics.
+![Account Ownership Trend](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/account_ownership_trend.png)
 
 > [!TIP]
 > **Digital Dominance**: In October 2024, the volume of digital P2P transfers officially surpassed ATM cash withdrawals for the first time in Ethiopia's history (Ratio: 1.08).
+![P2P vs ATM Transaction Volume](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/p2p_vs_atm.png)
 
 ---
 

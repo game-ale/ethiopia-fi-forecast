@@ -27,17 +27,17 @@ The provided dataset was enriched with four strategic records to better capture 
 
 ### Insight 1: The "Ownership Paradox" (2021-2024 slowdown)
 **Observation:** Account ownership grew only 3 percentage points (46% to 49%) between 2021 and 2024.  
-**Visual Evidence:** [account_ownership_trend.png](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/account_ownership_trend.png)  
+![Account Ownership Trend](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/account_ownership_trend.png)  
 **Analysis:** This stagnation occurred despite the launch of Telebirr (54M users) and M-Pesa (10M users). This suggests that new mobile money users are largely individuals who already held bank accounts (multi-homing) or that registration has not yet converted to the "account ownership" definition used by Findex.
 
 ### Insight 2: Maturity Milestone: P2P > ATM
 **Observation:** Interoperable P2P transfers have officially surpassed ATM cash withdrawals in volume.  
-**Visual Evidence:** [p2p_vs_atm.png](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/p2p_vs_atm.png)  
+![P2P vs ATM Transaction Volume](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/p2p_vs_atm.png)  
 **Analysis:** With a crossover ratio of 1.08, Ethiopia has reached a "Digital First" tipping point. The growth of EthSwitch-enabled transfers is outpacing cash-out demand.
 
 ### Insight 3: The Persistent Gender Gap
 **Observation:** A gender gap of 18 percentage points remains in account ownership.  
-**Visual Evidence:** [gender_gap.png](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/gender_gap.png)  
+![Account Ownership Gender Gap](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/gender_gap.png)  
 **Analysis:** Male ownership is approaching 60%, while female ownership remains significantly lower. Policy interventions like Fayda ID are categorized as potential "gap reducers" in our upcoming models.
 
 ### Insight 4: The "Usage-Coverage Gap"
@@ -46,7 +46,7 @@ The provided dataset was enriched with four strategic records to better capture 
 
 ### Insight 5: Event Sensitivity
 **Observation:** Historical data shows sharp "kinks" in adoption curves following major infrastructure launches (e.g., Telebirr in 2021).  
-**Visual Evidence:** [event_timeline.png](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/event_timeline.png)  
+![Financial Inclusion Events Timeline](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/event_timeline.png)  
 **Analysis:** Most inclusion progress in Ethiopia is "event-driven" rather than purely organic trend-driven, necessitating the "Event-Augmented" forecasting model planned for Task 4.
 
 ---
