@@ -1,0 +1,72 @@
+field,code,description,applies_to
+record_type,observation,Actual measured value from a source,All
+record_type,event,Policy launch market event or milestone,All
+record_type,impact_link,Relationship between event and indicator (links via parent_id),All
+record_type,target,Policy target or official goal,All
+record_type,baseline,Starting point for comparison,All
+record_type,forecast,Predicted future value,All
+category,product_launch,New product or service introduced,event
+category,market_entry,New competitor enters market,event
+category,market_exit,Competitor leaves market,event
+category,policy,Government strategy or regulatory framework,event
+category,regulation,Specific regulatory directive or rule change,event
+category,infrastructure,System or network deployment,event
+category,partnership,Integration or cooperation between entities,event
+category,milestone,Achievement or threshold crossed,event
+category,economic,Macro-economic shock or reform,event
+category,pricing,Price or tariff change,event
+pillar,ACCESS,Can people reach services? Coverage devices accounts,observation/target/impact_link
+pillar,USAGE,Are people actively using? Transactions active users,observation/target/impact_link
+pillar,QUALITY,Do services work? Success rates uptime,observation/target/impact_link
+pillar,AFFORDABILITY,Can people afford it? Costs relative to income,observation/target/impact_link
+pillar,TRUST,Do people trust it? Complaints fraud,observation/target/impact_link
+pillar,DEPTH,Beyond payments? Savings credit insurance,observation/target/impact_link
+pillar,GENDER,Gender gaps across dimensions,observation/target/impact_link
+indicator_direction,higher_better,Higher values indicate better outcomes,observation
+indicator_direction,lower_better,Lower values indicate better outcomes,observation
+indicator_direction,neutral,Direction depends on context,observation
+value_type,percentage,Value 0-100 representing a rate or proportion,All
+value_type,count,Integer count of items transactions users,All
+value_type,currency_etb,Monetary value in Ethiopian Birr,All
+value_type,currency_usd,Monetary value in US Dollars,All
+value_type,ratio,Ratio of two values unitless,All
+value_type,rate,Normalized rate per population unit,All
+value_type,index,Composite score typically 0-100 or 0-1,All
+value_type,gap_pp,Difference between two percentages in percentage points,All
+value_type,boolean,Yes/No True/False 1/0,All
+value_type,categorical,Discrete category or status,All
+value_type,text,Descriptive text,All
+source_type,survey,Demand-side household survey (Findex FinScope),All
+source_type,operator,Company reports and data (Ethio Telecom Safaricom EthSwitch),All
+source_type,regulator,Central bank or government data (NBE NIDP),All
+source_type,policy,Strategy documents directives proclamations,All
+source_type,news,News articles press releases announcements,All
+source_type,research,Academic papers think tank reports (GSMA IMF World Bank),All
+source_type,calculated,Derived from other indicators in this dataset,All
+source_type,field,Primary data collected by trainees,All
+confidence,high,Primary source verified official data,All
+confidence,medium,Secondary source cross-referenced,All
+confidence,low,Single source unverified,All
+confidence,estimated,Calculated or interpolated,All
+gender,all,Aggregate figure for all genders,All
+gender,male,Male-specific figure,All
+gender,female,Female-specific figure,All
+location,national,Country-wide aggregate,All
+location,urban,Urban areas only,All
+location,rural,Rural areas only,All
+relationship_type,direct,Event directly causes change in indicator,impact_link
+relationship_type,indirect,Event causes change through intermediate mechanism,impact_link
+relationship_type,enabling,Event creates conditions for future change,impact_link
+relationship_type,constraining,Event limits potential improvement,impact_link
+impact_direction,increase,Expected to raise indicator value,impact_link
+impact_direction,decrease,Expected to lower indicator value,impact_link
+impact_direction,stabilize,Expected to maintain current level,impact_link
+impact_direction,mixed,Direction unclear or varies,impact_link
+impact_magnitude,high,Major impact greater than 15% change expected,impact_link
+impact_magnitude,medium,Moderate impact 5-15% change expected,impact_link
+impact_magnitude,low,Minor impact less than 5% change expected,impact_link
+impact_magnitude,negligible,Very small impact less than 1% change expected,impact_link
+evidence_basis,empirical,Based on observed Ethiopian data,impact_link
+evidence_basis,literature,Based on research from other countries,impact_link
+evidence_basis,theoretical,Based on economic theory,impact_link
+evidence_basis,expert,Domain expert judgment,impact_link
