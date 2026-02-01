@@ -1,59 +1,119 @@
-# Ethiopia Financial Inclusion Forecasting System
+# 🇪🇹 Ethiopia Financial Inclusion Forecasting System
 
-## Overview
-This project develops a forecasting system to track Ethiopia's digital financial transformation. It predicts progress on two core dimensions of financial inclusion: **Access (Account Ownership)** and **Usage (Digital Payment Adoption)** for the years 2025-2027.
+[![Project Status: Task 2 Complete](https://img.shields.io/badge/Status-Task%202%20Complete-green.svg)](https://github.com/game-ale/ethiopia-fi-forecast)
+[![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## Project Structure
+> "A comprehensive forecasting system tracking Ethiopia's digital financial transformation (2011–2027) using time-series analysis and event-impact modeling."
+
+---
+
+## 📊 Overview
+
+Ethiopia is undergoing a rapid digital financial transformation. While mobile money registration has surged (Telebirr >54M, M-Pesa >10M), Global Findex demand-side data shows a complex picture of account ownership growth. This project builds a predictive system for the **Consortium of Stakeholders** to understand the drivers behind these trends and project inclusion outcomes for **2025–2027**.
+
+### 🎯 Key Objectives
+1.  **Enrich** legacy datasets with leading infrastructure and enabler metrics (Smartphones, 4G, Digital ID).
+2.  **Analyze** the "Ownership Paradox" and the P2P-to-ATM crossover.
+3.  **Model** the lagging impacts of policy shifts (FX Liberalization, Open Banking) and product launches.
+4.  **Forecast** Access and Usage indicators with high/medium/low scenarios.
+
+---
+
+## 🏗 System Architecture
+
+```mermaid
+graph TD
+    A[Raw Data: Findex, Operator Reports, NBE] --> B[Data Enrichment Pipeline]
+    B --> C[Unified Data Schema]
+    C --> D[Exploratory Data Analysis]
+    D --> E[Event Impact Modeling]
+    E --> F[Forecasting Engine]
+    F --> G[Interactive Streamlit Dashboard]
+    
+    subgraph "Unified Schema"
+    C1[Observations]
+    C2[Events]
+    C3[Impact Links]
+    C4[Targets]
+    end
+```
+
+---
+
+## 📂 Project Structure
+
 ```text
 ethiopia-fi-forecast/
 ├── data/
-│   ├── raw/                      # Starter and enriched unified datasets
-│   └── processed/                # Analysis-ready data
+│   ├── raw/                  # Enriched unified data (CSV)
+│   └── processed/            # Feature-engineered & Impact matrix data
 ├── notebooks/
-│   └── EDA.ipynb                 # Task 2: Exploratory Data Analysis
+│   └── EDA.ipynb             # Interactive deep-dive into inclusion patterns
 ├── src/
-│   ├── init_data.py              # Data initialization and CSV conversion
-│   ├── enrich_data.py            # Task 1: Dataset enrichment script
-│   └── eda.py                    # Static EDA visualization script
+│   ├── init_data.py          # Excel-to-Unified-CSV conversion
+│   ├── enrich_data.py        # Pipeline for adding new proxy observations
+│   └── impact_modeling.py    # Logic for quantifying event-indicator links
 ├── reports/
-│   ├── figures/                  # Generated plots and charts
-│   └── eda_summary.md            # Task 2: Key insights and findings
-├── requirements.txt              # Project dependencies
-└── README.md                     # Project documentation
+│   ├── figures/              # Professional visualizations & trend plots
+│   ├── interim_report.md     # Phase 1 & 2 Synthesis for Consortium
+│   └── eda_summary.md        # Detailed findings on the 2021-2024 slowdown
+├── dashboard/
+│   └── app.py                # Streamlit interface (Coming in Task 5)
+├── requirements.txt          # Reproducible environment
+└── README.md                 # Project Documentation
 ```
 
-## Task Progress
+---
 
-### Task 1: Data Exploration and Enrichment (Completed)
-- **Unified Schema:** All records (observations, events, impact links, targets) share a single structure.
-- **Enrichment:** Added metrics for **Smartphone Penetration** (29.5%) and **Mobile Internet Usage** (21.4%) to fill enabler gaps.
-- **New Events:** Cataloged the **NBE Open Banking Framework (2025)** as a significant policy driver.
-- **Deliverables:** `data/raw/ethiopia_fi_unified_data.csv`, `data_enrichment_log.md`.
+## 🚀 Getting Started
 
-### Task 2: Exploratory Data Analysis (Completed)
-- **Growth Analysis:** Identified a growth deceleration in account ownership (46% to 49% from 2021-2024).
-- **Milestone:** P2P transactions surpassed ATM withdrawals for the first time in late 2024.
-- **Gender Gap:** Significant 18pp gap in account ownership persists.
-- **Deliverables:** `notebooks/EDA.ipynb`, `reports/eda_summary.md`.
+### 1. Installation
+Ensure you have Python 3.12+ installed.
+```bash
+git clone https://github.com/game-ale/ethiopia-fi-forecast.git
+cd ethiopia-fi-forecast
+pip install -r requirements.txt
+```
 
-## Setup and Installation
-1. Clone the repository.
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Initialize data:
-   ```bash
-   python src/init_data.py
-   python src/enrich_data.py
-   ```
-4. Run EDA:
-   ```bash
-   python src/eda.py
-   ```
-   Or open `notebooks/EDA.ipynb` in a Jupyter environment.
+### 2. Data Pipeline
+Initialize and enrich the dataset:
+```bash
+python src/init_data.py
+python src/enrich_data.py
+```
 
-## Key Insights Summary
-1. **The Ownership Paradox:** Despite 60M+ mobile money registrations, Findex-reported account ownership only grew by 3pp. This suggests a transition from "registration" to "meaningful usage" is still ongoing, or significant multi-homing exists.
-2. **Digital First:** The P2P/ATM crossover ratio of 1.08 indicates the ecosystem is maturing beyond cash.
-3. **Usage Gap:** 4G coverage (70%+) far outpaces mobile internet usage (21%), pointing to affordability and literacy barriers.
+### 3. Explore & Model
+Run the static analysis or launch the notebook:
+```bash
+python src/eda.py
+jupyter notebook notebooks/EDA.ipynb
+```
+
+---
+
+## 🧠 Key Insights (Interim)
+
+> [!IMPORTANT]
+> **The Ownership Paradox**: Account ownership grew only **3pp (46% → 49%)** between 2021-2024 despite a **10x** increase in mobile money registrations. This suggests significant overlap and a need for deeper usage-based metrics.
+
+> [!TIP]
+> **Digital Dominance**: In October 2024, the volume of digital P2P transfers officially surpassed ATM cash withdrawals for the first time in Ethiopia's history (Ratio: 1.08).
+
+---
+
+## 📅 Roadmap
+
+- [x] **Task 1**: Data Exploration & Unified Schema Enrichment
+- [x] **Task 2**: Exploratory Data Analysis & Milestone Identification
+- [ ] **Task 3**: Event Impact Modeling (Quantifying Lags & Magnitudes)
+- [ ] **Task 4**: Time-Series Forecasting (2025–2027)
+- [ ] **Task 5**: Stakeholder Dashboard Deployment
+
+---
+
+## 🤝 Collaboration
+This project is developed for the **Selam Analytics** consortium. Use branches `task-1`, `task-2`, etc., for specific feature development.
+
+**Analyst:** [Antigravity AI]  
+**Last Updated:** February 1, 2026
