@@ -47,7 +47,7 @@ Despite 54M+ registered mobile money accounts, unique account ownership grew slo
 *   **Root Cause**: High rate of "multi-homing" (banked users opening wallets).
 *   **Implication**: Future growth relies on the "Usage-Coverage Gap"—converting the 21% of mobile internet users who are not yet financially active.
 
-**Visual Evidence**:
+**Figure 1: The Ownership Paradox & Usage Gap**
 ![Account Ownership Trend](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/account_ownership_trend.png)
 ![Usage Coverage Gap](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/usage_coverage_gap.png)
 
@@ -59,6 +59,8 @@ We delivered a **Streamlit Dashboard** (`dashboard/app.py`) to allow stakeholder
 *   **Forecast Tab**: Interactive scenario selector (Base/Optimistic/Pessimistic).
 *   **Impact Tab**: Visualizes the underlying event weights.
 
+**Figure 2: Interactive Dashboard Snapshot**
+*A unified view of trends, forecasts, and impact scenarios.*
 ![Dashboard Snapshot](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/dashboard_snapshot.png)
 
 ---
@@ -92,6 +94,8 @@ Our model predicts a steady climb.
 
 > **Analyst Note**: Crossing the 60% mark in 2027 aligns with the revised NFIS-II mid-term targets, suggesting that current policy levers are effective but require sustained execution.
 
+**Figure 4: Account Ownership Forecast Fan Chart (2011-2027)**
+*Visualizing the 1.5pp uncertainty spread between Optimistic and Pessimistic outcomes.*
 ![Forecast Fan Chart](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/forecast_fan_chart.png)
 
 ---
@@ -122,7 +126,7 @@ To ensure the **Optimistic Scenario (61.16%)** is realized, we propose:
 
 ---
 
-## 7. Limitations and Future Work
+## 8. Limitations and Future Work
 
 ### Limitations
 1.  **Data Frequency**: The core Findex survey occurs only every 3 years, necessitating the use of proxy supply-side data (NBE reports) which may overstate "active" users due to multi-homing.
