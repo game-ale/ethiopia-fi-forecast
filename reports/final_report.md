@@ -36,9 +36,11 @@ In a historic shift, the volume of digital P2P transfers has surpassed ATM cash 
 
 ### B. The Ownership Paradox
 Despite 54M+ registered mobile money accounts, unique account ownership grew slowly (46% → 49%) between 2021-2024.
-*   **Root Cause**: High rate of "multi-homing" (banked users opening wallets) rather than unbanked uptake.
-*   **Implication**: Future growth must come from the "Usage-Coverage Gap"—converting the 21% of mobile internet users who are not yet financially active.
+*   **Root Cause**: High rate of "multi-homing" (banked users opening wallets).
+*   **Implication**: Future growth relies on the "Usage-Coverage Gap"—converting the 21% of mobile internet users who are not yet financially active.
 
+**Visual Evidence**:
+![Account Ownership Trend](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/account_ownership_trend.png)
 ![Usage Coverage Gap](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/usage_coverage_gap.png)
 
 ---
@@ -55,6 +57,8 @@ Our model predicts a re-acceleration of growth in 2025 as the combined effects o
 | **2027** | 59.66% | **60.41%** | 61.16% |
 
 > **Analyst Note**: Crossing the 60% mark in 2027 aligns with the revised NFIS-II mid-term targets, suggesting that current policy levers are effective but require sustained execution.
+
+![Forecast Fan Chart](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/forecast_fan_chart.png)
 
 ---
 
