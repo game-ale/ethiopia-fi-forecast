@@ -90,6 +90,12 @@ python src/eda.py
 jupyter notebook notebooks/EDA.ipynb
 ```
 
+### 4. Interactive Dashboard
+Results are served via a Streamlit app.
+```bash
+streamlit run dashboard/app.py
+```
+
 ---
 
 ## 🧠 Key Insights (Interim)
@@ -117,5 +123,6 @@ jupyter notebook notebooks/EDA.ipynb
 ## 🤝 Collaboration
 This project is developed for the **Selam Analytics** consortium. Use branches `task-1`, `task-2`, etc., for specific feature development.
 
-**Analyst:** [Antigravity AI]  
-**Last Updated:** February 1, 2026
+**Analyst:** Gemechu ALemu 
+**Last Updated:** February 3, 2026
+
