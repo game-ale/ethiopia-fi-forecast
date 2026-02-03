@@ -11,20 +11,28 @@
 
 This report presents the final outputs of the **Ethiopia Financial Inclusion Forecasting System**. By integrating supply-side infrastructure data with demand-side Findex surveys, we have modeled the trajectory of financial inclusion through 2027.
 
-**Key Conclusion**: Ethiopia is on track to break the **60% Account Ownership** threshold by late 2026, driven by the "Digital First" transition where platform-based payments are replacing cash. Our base-case model projects **60.41%** ownership by 2027, with a potential upside to **61.16%** if Open Banking reforms are fully implemented.
+**Key Conclusion**: Ethiopia is on track to break the **60% Account Ownership** threshold by late 2026. Our modeling identifies that whilst infrastructure (4G/Agents) set the stage, it is specific *Usage Events*—like the interoperability of P2P transfers—that are now the primary drivers of growth.
+
+### 1.1 Consortium Objectives
+To ensure actionable insights, we tailored this analysis for:
+*   **National Bank of Ethiopia (NBE)**: Validating if the "Open Banking Framework" (2025) will bridge the gap to the NFIS-II 70% target.
+*   **Mobile Network Operators (MNOs)**: Understanding if market saturation is near for basic wallets vs. advanced credit products.
+*   **DFIs**: Identifying the "Usage-Coverage Gap" to target funding towards device financing and digital literacy.
 
 ---
 
 ## 2. Methodology
 
-Our approach moved beyond simple trend extrapolation by incorporating **Event Impact Modeling**:
+### 2.1 Data Enrichment Strategy
+The core Findex dataset (3 observations) was insufficient for high-fidelity forecasting. We enriched this with a **Unified Schema** approach:
+*   **Proxy Integration**: We ingested GSMA intelligence data (`ACC_SMARTPHONE`, `ACC_MOBILE_INTERNET`) to serve as leading indicators for demand-side adoption.
+*   **Event Cataloging**: We structured qualitative milestones (e.g., "Telebirr Launch") into quantitative event records (`EVT_00XX`), allowing us to measure "Shock" vs. "Trend" dynamics.
 
-1.  **Data Enrichment**: We augmented the core dataset with critical enablers like **Smartphone Penetration (29.5%)** and **4G Coverage**.
-2.  **Event Modeling**: We quantified the "shocks" from major historical events (e.g., Telebirr Launch, M-Pesa Entry) to calibrate future impacts.
-3.  **Scenario Forecasting**: We projected 2025-2027 outcomes under three conditions:
-    *   **Base Case**: Status quo trend + moderate policy implementation.
-    *   **Optimistic**: Full realization of "Open Banking" and "FX Liberalization" benefits.
-    *   **Pessimistic**: Macroeconomic headwinds delaying infrastructure deeper into rural areas.
+### 2.2 Event Impact Modeling Framework
+We developed a semi-structural forecasting model (`Value_t = Trend_t + Σ Impact_i`) rather than a pure black-box regression.
+1.  **Scoring**: Qualitative events were assigned magnitude scores (High=3, Medium=2, Low=1) and directions based on expert consensus and comparable market analysis (e.g., Kenya's M-Pesa trajectory).
+2.  **Lag & Persistence**: Improvements were modeled with a 12-month "ramp-up" period, reflecting the time lag between policy announcement and consumer adoption.
+3.  **Association Matrix**: We visualized these derived scores (Figure 3) to validate that our model weights aligned with historical reality (e.g., the massive inclusion spike post-2021).
 
 ---
 
@@ -55,11 +63,26 @@ We delivered a **Streamlit Dashboard** (`dashboard/app.py`) to allow stakeholder
 
 ---
 
-## 4. Forecast Results (2025-2027)
+## 4. Answering the Consortium's Core Questions
+
+### Q1: What drives financial inclusion in Ethiopia?
+**Answer**: It is currently **Supply-Push** driven. Our EDA shows that account growth correlates most strongly with "Product Launches" (Telebirr) rather than organic demand factors like GDP. The *Ownership Paradox* (Insight B) confirms that infrastructure is ahead of actual usage.
+
+### Q2: How do events affect outcomes?
+**Answer**: Events act as "Step Functions". Historical analysis reveals that inclusion affects don't grow linearly but spike following platform launches. Our model assigns the highest weights to **Interoperability Events** (EthSwitch P2P) over physical infrastructure events (ATM deployment).
+
+### Q3: What is the 2025-2027 Outlook?
+**Answer**: We forecast a transition from "Acquisition" to "Deepening".
+*   **2025**: Re-acceleration to **54.5%** driven by M-Pesa scaling.
+*   **2027**: Reaching **60.4%** as Open Banking allows third-party fintechs to build on top of MNO rails.
+
+---
+
+## 5. Forecast Results (2025-2027)
 
 ### Target: Account Ownership Rate
-Our model predicts a re-acceleration of growth in 2025.
-*   **Uncertainty Range**: By 2027, the spread between Optimistic and Pessimistic scenarios is **1.5pp**, representing a standard error of approximately ±0.75%.
+Our model predicts a steady climb.
+*   **Uncertainty Quantification**: The 1.5pp spread between Optimistic and Pessimistic scenarios reflects the execution risk of the NBE's upcoming reforms. A failure to launch Open Banking would pin results to the Pessimistic (59.6%) trajectory.
 
 | Year | Pessimistic | **Base Case** | Optimistic |
 | :--- | :--- | :--- | :--- |
@@ -73,24 +96,29 @@ Our model predicts a re-acceleration of growth in 2025.
 
 ---
 
-## 5. Event Impact Analysis
+## 6. Event Impact Analysis
 
-Our **Event-Indicator Matrix** identified the Drivers of Change:
-1.  **High Impact**: *Telebirr Launch (2021)* - Validated as the primary driver of the 2021-2024 active user surge.
-2.  **Medium Impact**: *NBE Open Banking (2025)* - Projected to drive the next wave of "Usage" depth (merchant payments, credit).
-3.  **Low Impact**: *ATMs* - Infrastructure saturation reached; incremental ATMs show diminishing returns on inclusion.
+**Figure 3: Event-Indicator Association Matrix**
+*This heatmap visualizes the model's assigned impact scores (Red to Green), identifying which events are the strongest predictors of future growth.*
+
+1.  **High Impact (Driver)**: *Telebirr Launch (2021)* - Validated as the primary driver of recent growth.
+2.  **Medium Impact (Enabler)**: *NBE Open Banking (2025)* - Critical for the 2026-2027 "Optimistic" scenario.
+3.  **Low Impact (Saturated)**: *ATMs* - Infrastructure saturation suggests marginal returns.
 
 ![Impact Matrix](file:///C:/weak10/ethiopia-fi-forecast/reports/figures/impact_matrix.png)
 
 ---
 
-## 6. Strategic Recommendations
+## 7. Strategic Recommendations
 
-To ensure the **Optimistic Scenario (61.16%)** is realized, the Consortium should focus on:
+To ensure the **Optimistic Scenario (61.16%)** is realized, we propose:
 
-1.  **Bridge the Device Gap**: Smartphone penetration (29.5%) is the hard ceiling for advanced services. Financing schemes for low-cost 4G handsets are critical.
-2.  **Leverage Digital ID (Fayda)**: Integrate Fayda eKYC into all wallet on-boarding to reduce the cost of customer acquisition for the rural unbanked.
-3.  **Merchant Interoperability**: While P2P is solved (EthSwitch), P2B (Pay-to-Merchant) remains fragmented. A unified QR standard is the next "Event" needed to spike Usage figures.
+1.  **Bridge the Device Gap** (*Evidence: Usage-Coverage Gap*)
+    *   **Strategy**: MNOs should shift subsidies from airtime to **4G Handset Financing**. The 29.5% smartphone penetration is the hard ceiling for advanced app-based inclusion.
+2.  **Leverage Digital ID** (*Evidence: Gender Gap trend*)
+    *   **Strategy**: Use Fayda eKYC to lower the cost-to-serve for rural women, directly addressing the 18pp gender gap which has remained stubborn despite general growth.
+3.  **Merchant Interoperability** (*Evidence: P2P vs ATM Ratio*)
+    *   **Strategy**: Capitalize on the "Digital Dominance" behavior. The public is ready for digital P2P; a unified QR standard will convert this P2P habit into P2B (Merchant) commerce.
 
 ---
 
