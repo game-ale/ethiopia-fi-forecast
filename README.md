@@ -1,6 +1,6 @@
 # 🇪🇹 Ethiopia Financial Inclusion Forecasting System
 
-[![Project Status: Task 2 Complete](https://img.shields.io/badge/Status-Task%202%20Complete-green.svg)](https://github.com/game-ale/ethiopia-fi-forecast)
+[![Project Status: Complete](https://img.shields.io/badge/Status-Complete-green.svg)](https://github.com/game-ale/ethiopia-fi-forecast)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -47,19 +47,23 @@ graph TD
 ethiopia-fi-forecast/
 ├── data/
 │   ├── raw/                  # Enriched unified data (CSV)
-│   └── processed/            # Feature-engineered & Impact matrix data
+│   └── processed/            # Feature-engineered & Forecast data
 ├── notebooks/
-│   └── EDA.ipynb             # Interactive deep-dive into inclusion patterns
+│   ├── EDA.ipynb             # Interactive deep-dive into inclusion patterns
+│   ├── impact_modeling.ipynb # Validation of event impacts
+│   └── forecasting.ipynb     # Scenario visualization
 ├── src/
 │   ├── init_data.py          # Excel-to-Unified-CSV conversion
 │   ├── enrich_data.py        # Pipeline for adding new proxy observations
-│   └── impact_modeling.py    # Logic for quantifying event-indicator links
+│   ├── impact_modeling.py    # Logic for quantifying event-indicator links
+│   ├── forecast.py           # Forecasting engine (Trend + Event Model)
+│   └── eda.py                # Static analysis report generation
 ├── reports/
 │   ├── figures/              # Professional visualizations & trend plots
 │   ├── interim_report.md     # Phase 1 & 2 Synthesis for Consortium
 │   └── eda_summary.md        # Detailed findings on the 2021-2024 slowdown
 ├── dashboard/
-│   └── app.py                # Streamlit interface (Coming in Task 5)
+│   └── app.py                # Streamlit interface
 ├── requirements.txt          # Reproducible environment
 └── README.md                 # Project Documentation
 ```
@@ -87,7 +91,8 @@ python src/enrich_data.py
 Run the static analysis or launch the notebook:
 ```bash
 python src/eda.py
-jupyter notebook notebooks/EDA.ipynb
+python src/impact_modeling.py
+python src/forecast.py
 ```
 
 ### 4. Interactive Dashboard
@@ -114,15 +119,14 @@ streamlit run dashboard/app.py
 
 - [x] **Task 1**: Data Exploration & Unified Schema Enrichment
 - [x] **Task 2**: Exploratory Data Analysis & Milestone Identification
-- [ ] **Task 3**: Event Impact Modeling (Quantifying Lags & Magnitudes)
-- [ ] **Task 4**: Time-Series Forecasting (2025–2027)
-- [ ] **Task 5**: Stakeholder Dashboard Deployment
+- [x] **Task 3**: Event Impact Modeling (Quantifying Lags & Magnitudes)
+- [x] **Task 4**: Time-Series Forecasting (2025–2027)
+- [x] **Task 5**: Stakeholder Dashboard Deployment
 
 ---
 
 ## 🤝 Collaboration
 This project is developed for the **Selam Analytics** consortium. Use branches `task-1`, `task-2`, etc., for specific feature development.
 
-**Analyst:** Gemechu ALemu 
+**Analyst:** Gemechu Alemu
 **Last Updated:** February 3, 2026
-
