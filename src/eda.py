@@ -65,15 +65,19 @@ def run_eda():
         else:
             logging.warning("No data found for P2P vs ATM comparison.")
 
-        # 3. Gender Gap
+        # 3. Gender Gap (Fixed labels)
         logging.info("Generating Gender Gap analysis...")
         gender_data = df[(df['indicator_code'] == 'ACC_OWNERSHIP') & (df['gender'].isin(['male', 'female']))]
         if not gender_data.empty:
             gender_pivot = gender_data.pivot(index='observation_date', columns='gender', values='value_numeric')
+            # Extract only the year for clearer x-axis labels
+            gender_pivot.index = gender_pivot.index.year
             plt.figure(figsize=(10, 6))
-            gender_pivot.plot(kind='bar', ax=plt.gca(), color=['#ff7f0e', '#1f77b4'])
-            plt.title("Account Ownership by Gender")
+            gender_pivot.plot(kind='bar', ax=plt.gca(), color=['#ff7f0e', '#1f77b4'], width=0.6)
+            plt.title("Account Ownership by Gender (2021-2024)", fontsize=14)
             plt.ylabel("Ownership Rate (%)")
+            plt.xlabel("Year")
+            plt.xticks(rotation=0)
             plt.legend(title="Gender")
             plt.tight_layout()
             plt.savefig(os.path.join(output_dir, "gender_gap.png"))
@@ -81,8 +85,51 @@ def run_eda():
         else:
             logging.warning("No data found for Gender Gap analysis.")
 
-        # 4. Event Timeline
-        logging.info("Generating Event Timeline...")
+        # 4. Usage-Coverage Gap (New for Insight 4)
+        logging.info("Generating Usage-Coverage Gap analysis...")
+        coverage_codes = ['ACC_4G_COV', 'ACC_MOBILE_INTERNET']
+        gap_data = df[(df['indicator_code'].isin(coverage_codes)) & (df['record_type'] == 'observation')].copy()
+        
+        # Latest available for comparison (e.g., 2024/2025)
+        gap_data = gap_data.sort_values('observation_date').groupby('indicator_code').last().reset_index()
+        
+        if not gap_data.empty:
+            plt.figure(figsize=(10, 6))
+            sns.barplot(data=gap_data, x='indicator', y='value_numeric', palette='magma', hue='indicator', legend=False)
+            plt.title("The Usage-Coverage Gap (Infrastructure vs adoption)", fontsize=14)
+            plt.ylabel("Percentage (%)")
+            plt.ylim(0, 100)
+            for i, val in enumerate(gap_data['value_numeric']):
+                plt.text(i, val + 2, f"{val}%", ha='center', fontweight='bold')
+            plt.savefig(os.path.join(output_dir, "usage_coverage_gap.png"))
+            plt.close()
+        else:
+            logging.warning("No data found for Usage-Coverage Gap.")
+
+        # 5. Event-Indicator Relationship (New for Insight 5)
+        logging.info("Generating Event overlay on Account Ownership...")
+        acc_own = df[(df['indicator_code'] == 'ACC_OWNERSHIP') & (df['record_type'] == 'observation') & (df['gender'] == 'all')].sort_values('observation_date')
+        key_events = df[df['record_type'] == 'event'].sort_values('observation_date')
+
+        if not acc_own.empty:
+            plt.figure(figsize=(12, 7))
+            plt.plot(acc_own['observation_date'], acc_own['value_numeric'], marker='o', linewidth=3, label='Account Ownership', color='#1f77b4')
+            
+            # Map events to the y-axis (roughly)
+            for _, row in key_events.iterrows():
+                plt.axvline(x=row['observation_date'], color='red', linestyle='--', alpha=0.3)
+                plt.text(row['observation_date'], 15, row['indicator'], rotation=90, verticalalignment='bottom', fontsize=8, color='darkred')
+            
+            plt.title("Impact Analysis: Events vs. Account Ownership Trajectory", fontsize=14)
+            plt.ylabel("Ownership Rate (%)")
+            plt.xlabel("Timeline")
+            plt.legend(loc='upper left')
+            plt.tight_layout()
+            plt.savefig(os.path.join(output_dir, "event_indicator_impact.png"))
+            plt.close()
+
+        # Original basic timeline
+        logging.info("Generating standard Event Timeline...")
         events = df[df['record_type'] == 'event'].sort_values('observation_date')
         if not events.empty:
             plt.figure(figsize=(12, 4))
